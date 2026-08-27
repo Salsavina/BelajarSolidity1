@@ -1,0 +1,10 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract OwnerContract {
+    uint[] public angkas;
+
+    function add(uint _angkas) public {
+        angkas.push(_angkas);
+    }
+}
