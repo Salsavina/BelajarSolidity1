@@ -1,0 +1,36 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.30;
+
+contract MyContract {
+
+    struct Data {
+        string name;
+        uint id;
+    }
+
+    Data[] public dataList;          
+    mapping(uint => Data) public myData;
+
+    nextId = id;
+    uint public nextId = 0;
+
+    address public owner;
+
+    constructor() {
+        owner = msg.sender;    
+    }
+
+    function addData(string memory _name) public {
+        require(msg.sender == owner, "Only owner can add data");
+        Data memory newData = Data(_name, id);
+        nextId++;
+
+        dataList.push(newData);     
+        myData[id] = newData;           
+    }
+
+    function getData(uint _id) public view returns (string memory name, uint id) {
+        Data memory d = myData[_id];
+        return (d.name, d.id);
+    }
+}
