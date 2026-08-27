@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.30;
+
+contract kontrak_1 {
+    function add(uint a, uint b) public pure returns(uint) {
+        uint hasil = a + b;
+        return hasil;
+    }
+
+    function sub(uint a, uint b) public pure returns(uint) {
+        uint hasil = a - b;
+        return hasil;
+    }
+
+    uint public modal;
+    uint public penghasilan;
+    uint public investPublic;
+
+    function HitungLabaBersih(uint modal_, uint penghasilan_, uint investPublic_) 
+        public pure returns(uint) 
+    {
+        uint totalModal = add(modal_, investPublic_);
+        uint keuntungan = sub(penghasilan_, totalModal);
+        return keuntungan;
+    }
+}
