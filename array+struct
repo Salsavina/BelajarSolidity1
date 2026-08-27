@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.30;
+
+contract warehouse {
+    struct item {
+        string itemname;
+        uint itemprice;
+    }
+
+    item[] public items;
+
+    function addItem(string memory _itemname, uint _itemprice) public {
+        items.push(item(_itemname, _itemprice));
+    }
+
+    function getItem(uint256 index) public view returns (string memory, uint) {
+        return (items[index].itemname, items[index].itemprice);
+    }
+}
